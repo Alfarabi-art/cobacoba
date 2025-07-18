@@ -391,7 +391,7 @@ if "rata_pengukuran" in st.session_state:
             Ch = (0.020582 - 0.00252*suhu_udara) / ((237.15 + suhu_udara) * 1000)
             Cp = (0.464554) / ((237.15 + suhu_udara) * 1000)
             Ct = (-0.6182*kelembaban - 0.46554*tekanan) / (((237.15 + suhu_udara)**2) * 1000)
-            U4 = math.sqrt((Uh*Ch)*2 + (Up*Cp)2 + (Ut*Ct)*2)
+            U4 = math.sqrt((Uh*Ch)*2 + (Up*Cp)2 + (Ut*Ct)*2),
             Cs4 = massa * (1 - koef_muai*(T - 20)) / ((dens_air - dens_udara)**2)
 
         #Ketidakpastian KMV(U5)
