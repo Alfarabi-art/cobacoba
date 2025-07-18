@@ -403,7 +403,7 @@ if "rata_pengukuran" in st.session_state:
             Cs6 = 1
 
         #Ketidakpastian gabungan(Ugab)
-            Ugab = math.sqrt((U1*Cs1)*2 + (U2*Cs2)2 + (U3*Cs3)2 + (U4*Cs4)2 + (U5*Cs5)2 + (U6*Cs6)*2)
+            Ugab = math.sqrt((U1*Cs1)**2 + (U2*Cs2)**2 + (U3*Cs3)**2 + (U4*Cs4)**2 + (U5*Cs5)**2 + (U6*Cs6)**2)
         
         #Ketidakpastian Diperluas
             U95_exp = Ugab * 2
