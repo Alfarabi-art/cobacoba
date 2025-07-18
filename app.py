@@ -244,7 +244,8 @@ if st.session_state.page == 1:
             <p>Alat komprehensif ini membantu Anda melakukan perhitungan kalibrasi volume labu takar secara akurat, termasuk analisis ketidakpastian sesuai standar metrologi.</p>
         </div>
     """, unsafe_allow_html=True)
-        if st.button("➡ Mulai"):
+        
+    if st.button("➡ Mulai"):
             next_page()
 
 
