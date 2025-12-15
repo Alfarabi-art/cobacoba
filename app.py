@@ -10,147 +10,184 @@ st.set_page_config(
 # ===================== CUSTOM CSS =====================
 st.markdown("""
 <style>
-/* Global */
 html, body, [class*="css"] {
     font-family: 'Segoe UI', sans-serif;
 }
 
 .main {
-    background-color: #f6faf7;
+    background-color: #f4f9f6;
 }
 
-/* Hero Section */
+/* HERO */
 .hero {
-    background: linear-gradient(135deg, #4CAF50, #2E7D32);
-    padding: 60px 40px;
-    border-radius: 20px;
+    background: linear-gradient(120deg, #2e7d32, #66bb6a);
+    padding: 80px 40px;
+    border-radius: 25px;
     color: white;
     text-align: center;
     margin-bottom: 50px;
 }
-
 .hero h1 {
-    font-size: 48px;
-    margin-bottom: 10px;
+    font-size: 52px;
+    font-weight: 800;
 }
-
 .hero p {
-    font-size: 18px;
-    opacity: 0.95;
+    font-size: 20px;
+    max-width: 900px;
+    margin: auto;
 }
 
-/* Card */
+/* CARD */
 .card {
-    background-color: white;
-    padding: 25px;
-    border-radius: 18px;
-    box-shadow: 0px 8px 20px rgba(0,0,0,0.08);
+    background: white;
+    padding: 30px;
+    border-radius: 22px;
+    box-shadow: 0px 12px 30px rgba(0,0,0,0.08);
     margin-bottom: 25px;
 }
 
-/* Section Title */
-.section-title {
-    font-size: 28px;
-    font-weight: 700;
-    color: #2E7D32;
-    margin-bottom: 15px;
+.card h3 {
+    color: #2e7d32;
 }
 
-/* List */
-ul {
-    padding-left: 20px;
-}
-li {
-    margin-bottom: 8px;
-}
-
-/* Footer */
+/* FOOTER */
 .footer {
     text-align: center;
     padding: 30px;
-    color: #666;
+    color: #777;
     font-size: 14px;
 }
 </style>
 """, unsafe_allow_html=True)
 
-# ===================== HERO =====================
-st.markdown("""
-<div class="hero">
-    <h1>🌿 Deodoran Alami Berbasis IoT</h1>
-    <p>Inovasi ramah lingkungan dari limbah sayur dengan pemantauan fermentasi secara real-time</p>
-</div>
-""", unsafe_allow_html=True)
+# ===================== SIDEBAR =====================
+st.sidebar.title("🌿 Navigasi")
+menu = st.sidebar.radio(
+    "Pilih Halaman",
+    [
+        "🏠 Beranda",
+        "🌱 Tentang Produk",
+        "📡 Teknologi IoT",
+        "📱 Aplikasi Edukatif",
+        "🌍 Manfaat & Dampak",
+        "📂 Dokumentasi"
+    ]
+)
 
-# ===================== CONTENT =====================
-col1, col2 = st.columns(2)
-
-with col1:
+# ===================== PAGES =====================
+if menu == "🏠 Beranda":
     st.markdown("""
-    <div class="card">
-        <div class="section-title">Apa Itu Produk Ini?</div>
+    <div class="hero">
+        <h1>Deodoran Alami Berbasis IoT</h1>
         <p>
-        Produk ini merupakan deodoran alami yang dibuat dari limbah sayuran hasil fermentasi
-        seperti kol, brokoli, dan seledri. Proses fermentasi dipantau menggunakan teknologi
-        Internet of Things (IoT) untuk memastikan kualitas dan keamanan produk.
+        Inovasi ramah lingkungan yang mengolah limbah sayuran melalui fermentasi terkontrol
+        berbasis Internet of Things
         </p>
     </div>
     """, unsafe_allow_html=True)
 
-with col2:
-    st.image(
-        "https://via.placeholder.com/450x350.png?text=Deodoran+Alami",
-        use_column_width=True
-    )
+    col1, col2 = st.columns([1.2, 1])
+    with col1:
+        st.markdown("""
+        <div class="card">
+            <h3>Tentang Proyek</h3>
+            <p>
+            Produk ini memanfaatkan limbah sayur seperti kol, brokoli, dan seledri
+            yang difermentasi untuk menghasilkan deodoran alami. Proses fermentasi
+            dipantau secara real-time menggunakan teknologi IoT.
+            </p>
+        </div>
+        """, unsafe_allow_html=True)
 
-# ===================== WHY IMPORTANT =====================
-st.markdown("""
-<div class="card">
-    <div class="section-title">Mengapa Ini Penting?</div>
-    <p>
-    Deodoran berbahan kimia sintetis berpotensi menimbulkan iritasi kulit dan dampak lingkungan.
-    Di sisi lain, limbah sayuran terus meningkat dan belum dimanfaatkan secara optimal.
-    Inovasi ini menghadirkan solusi yang aman, berkelanjutan, dan edukatif.
-    </p>
-</div>
-""", unsafe_allow_html=True)
+    with col2:
+        st.image(
+            "https://images.unsplash.com/photo-1584270354949-1b4a56e9f8fa",
+            use_column_width=True
+        )
 
-# ===================== TECHNOLOGY =====================
-st.markdown("""
-<div class="card">
-    <div class="section-title">Teknologi IoT yang Digunakan</div>
-    <ul>
-        <li>Sensor pH untuk memantau tingkat keasaman fermentasi</li>
-        <li>Sensor suhu dan kelembapan untuk menjaga kondisi optimal</li>
-        <li>Monitoring real-time berbasis Internet of Things (IoT)</li>
-    </ul>
-</div>
-""", unsafe_allow_html=True)
+elif menu == "🌱 Tentang Produk":
+    st.header("🌱 Tentang Produk")
+    st.markdown("""
+    <div class="card">
+        <p>
+        Deodoran alami ini dikembangkan sebagai alternatif dari deodoran sintetis
+        yang berpotensi menimbulkan iritasi kulit. Limbah sayuran yang masih
+        mengandung senyawa bioaktif difermentasi untuk menghasilkan bahan
+        antibakteri alami.
+        </p>
+    </div>
+    """, unsafe_allow_html=True)
 
-# ===================== EDUCATION =====================
-st.markdown("""
-<div class="card">
-    <div class="section-title">Aplikasi Edukatif Android</div>
-    <p>
-    Aplikasi Android dikembangkan sebagai media edukasi untuk masyarakat, berisi
-    panduan pengolahan limbah sayur, penjelasan fermentasi, serta visualisasi data
-    sensor secara real-time.
-    </p>
-</div>
-""", unsafe_allow_html=True)
+elif menu == "📡 Teknologi IoT":
+    st.header("📡 Teknologi IoT")
+    col1, col2, col3 = st.columns(3)
 
-# ===================== BENEFITS =====================
-st.markdown("""
-<div class="card">
-    <div class="section-title">Manfaat Produk</div>
-    <ul>
-        <li>Mengurangi limbah organik rumah tangga</li>
-        <li>Deodoran alami yang aman untuk kulit</li>
-        <li>Meningkatkan kesadaran lingkungan</li>
-        <li>Sarana edukasi sains dan teknologi</li>
-    </ul>
-</div>
-""", unsafe_allow_html=True)
+    items = [
+        ("📊 Sensor pH", "Mengontrol keasaman fermentasi"),
+        ("🌡️ Sensor Suhu", "Menjaga kondisi optimal fermentasi"),
+        ("☁️ Monitoring", "Pemantauan real-time berbasis IoT")
+    ]
+
+    for col, (title, desc) in zip([col1, col2, col3], items):
+        with col:
+            st.markdown(f"""
+            <div class="card">
+                <h3>{title}</h3>
+                <p>{desc}</p>
+            </div>
+            """, unsafe_allow_html=True)
+
+elif menu == "📱 Aplikasi Edukatif":
+    st.header("📱 Aplikasi Edukatif Android")
+    col1, col2 = st.columns([1, 1.2])
+
+    with col1:
+        st.markdown("""
+        <div class="card">
+            <p>
+            Aplikasi Android dikembangkan sebagai media edukasi masyarakat
+            untuk memahami proses fermentasi, pemanfaatan limbah sayur,
+            dan teknologi IoT.
+            </p>
+        </div>
+        """, unsafe_allow_html=True)
+
+    with col2:
+        st.image(
+            "https://images.unsplash.com/photo-1511707171634-5f897ff02aa9",
+            use_column_width=True
+        )
+
+elif menu == "🌍 Manfaat & Dampak":
+    st.header("🌍 Manfaat & Dampak")
+    cols = st.columns(4)
+    benefits = [
+        "♻️ Mengurangi limbah organik",
+        "🧴 Deodoran alami & aman",
+        "📚 Media edukasi",
+        "🌱 Ramah lingkungan"
+    ]
+
+    for col, text in zip(cols, benefits):
+        with col:
+            st.markdown(f"""
+            <div class="card" style="text-align:center;">
+                <h3>{text}</h3>
+            </div>
+            """, unsafe_allow_html=True)
+
+elif menu == "📂 Dokumentasi":
+    st.header("📂 Dokumentasi")
+    st.markdown("""
+    <div class="card">
+        <ul>
+            <li>Dokumentasi proses fermentasi</li>
+            <li>Diagram sistem IoT</li>
+            <li>Hasil pemantauan sensor</li>
+            <li>Modul edukasi</li>
+        </ul>
+    </div>
+    """, unsafe_allow_html=True)
 
 # ===================== FOOTER =====================
 st.markdown("""
